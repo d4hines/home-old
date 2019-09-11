@@ -2,7 +2,7 @@ CORE=~/repos/finsemble
 SEED=~/repos/finsemble-seed
 FEA=~/repos/finsemble-electron-adapter
 DLL=~/repos/finsemble-dll
-PATCHES=~/repos/fsbl-patches
+PATCHES=~/fsbl-patches
 
 alias msbuild="/c/Program Files \(x86\)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/amd64/MSBuild.exe"
 alias core='cd $CORE && npm run build'
