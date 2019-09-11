@@ -1,0 +1,63 @@
+diff --git a/configs/application/components.json b/configs/application/components.json
+index c5b25486..689c6bdc 100644
+--- a/configs/application/components.json
++++ b/configs/application/components.json
+@@ -1,6 +1,45 @@
+ {
+ 	"comment": "Sample component configuration",
+ 	"components": {
++ "WPFExample": {
++			"window": {
++				"id": "WPFExample",
++				"windowType": "FinsembleNativeWindow",
++				"path": "C:/Users/d4hin/repos/finsemble-dll/WPFExample/bin/Debug/WPFExample.exe",
++				"url": "",
++				"arguments": "",
++								"autoShow": true,
++				"alwaysOnTop": false,
++				"resizable": true,
++				"showTaskbarIcon": false,
++				"contextMenu": true,
++				"addToWorkspace": true
++			},
++			"component": {
++				"spawnOnStartup": false
++			},
++			"foreign": {
++				"services": {
++					"workspaceService": {
++						"isArrangable": true
++					}
++				},
++				"components": {
++					"App Launcher": {
++						"launchableByUser": true
++					},
++					"Window Manager": {
++            "alwaysOnTopIcon": true,
++						"persistWindowState": false,
++						"FSBLHeader": true
++					},
++					"Toolbar": {
++						"iconURL": "$applicationRoot/assets/img/notepad.png"
++					}
++				}
++			}
++        }   
++    ,
+ 		"Welcome Component": {
+ 			"window": {
+ 				"url": "$applicationRoot/components/welcome/welcome.html",
+@@ -59,9 +98,9 @@
+ 				"id": "Notepad",
+ 				"native": true,
+ 				"path": "notepad.exe",
+-				"url": "",
+-				"defaultHeight": 600,
+-				"autoShow": true,
++        "url": "",
++        "defaultHeight": 600,
++								"autoShow": true,
+ 				"alwaysOnTop": false,
+ 				"resizable": true,
+ 				"showTaskbarIcon": false,

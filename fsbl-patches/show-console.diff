@@ -1,0 +1,13 @@
+diff --git a/configs/core/services.json b/configs/core/services.json
+index 091dd81c5..1fe558e1d 100644
+--- a/configs/core/services.json
++++ b/configs/core/services.json
+@@ -9,6 +9,8 @@
+ 			"category": "system"
+ 		},
+ 		"workspaceService": {
++      "visible": true,
++      "showDevConsoleOnVisible": true,
+ 			"spawnAs": "window",
+ 			"name": "workspaceService",
+ 			"html": "$servicesRoot/workspace/workspace.html",
