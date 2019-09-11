@@ -3,10 +3,14 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-
+SetTitleMatchMode RegEx
+CoordMode, Mouse, Screen
 
 ^+k::run "https://chartiq.kanbanize.com/ctrl_board/18"
 ^!r::run "http://roamresearch.com/#/v10/d4hines"
+;; Activate Slack
+^!s::Click, 2358, 1426
+
 ; ^f::OpenTheThing()
 ; 
 ; OpenTheThing() {
