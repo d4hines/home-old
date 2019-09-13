@@ -49,6 +49,10 @@ add() {
       cd "$CORE"
       git apply "$PATCHES"/show-console.diff
       ;;
+    "of")
+      cd "$SEED"
+      git apply "$PATCHES"/openfin.diff
+      ;;
     *)
       echo "Usage: $0 {wpf}"
       echo "Applies various patches to finsemble"

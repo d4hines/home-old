@@ -1,3 +1,4 @@
 rmdir /q /s %APPDATA%\Openfin
 rmdir /q /s %APPDATA%\e2o
-rmdir /q /s %APPDATALOCAL%\Openfin
+rmdir /q /s %LocalAppData%\Openfin
+pause
