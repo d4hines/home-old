@@ -4,11 +4,11 @@ FEA=~/repos/finsemble-electron-adapter
 DLL=~/repos/finsemble-dll
 PATCHES=~/fsbl-patches
 
-alias msbuild="/c/Program Files \(x86\)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/amd64/MSBuild.exe"
+alias msbuild="/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2019/Community/MSBuild/Current/Bin/amd64/MSBuild.exe"
 alias core='cd $CORE && npm run build'
 alias seed='cd $SEED && npm run dev'
 alias fea='cd $FEA && npm run dev'
-alias dll='msbuild'
+alias dll='msbuild $DLL'
 alias load_profile='source ~/.bash_profile'
 
 up() {
