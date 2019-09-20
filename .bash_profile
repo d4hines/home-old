@@ -1,8 +1,14 @@
-CORE=~/repos/finsemble
-SEED=~/repos/finsemble-seed
-FEA=~/repos/finsemble-electron-adapter
-DLL=~/repos/finsemble-dll
-PATCHES=~/fsbl-patches
+#!bin/bash
+
+complainEmpty() {
+  echo "No value detected for variable $1. Please set and restart the shell before continuing."
+}
+
+[ -z "$CORE" ] && complainEmpty "CORE"
+[ -z "$SEED" ] && complainEmpty "SEED"
+[ -z "$FEA" ] && complainEmpty "FEA"
+[ -z "$DLL" ] && complainEmpty "DLL"
+[ -z "$PATCHES" ] && complainEmpty "PATCHES"
 
 alias msbuild="/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2019/Community/MSBuild/Current/Bin/amd64/MSBuild.exe"
 alias core='cd $CORE && npm run build'
