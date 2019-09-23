@@ -66,16 +66,23 @@ add() {
   esac
 }
 
+checkoutAndVerify() {
+  cd $1
+  git checkout $2
+}
+
 fsbl() {
   case $1 in
      "sha")
         project_sha
         ;;
+      "add")
+        add $2
+        ;;
       "co")
         for x in "${all[@]}"
         do
-          cd $x
-          git checkout $2
+          checkoutAndVerify $x $2 &
         done
         ;;
      *)
