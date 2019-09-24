@@ -71,6 +71,19 @@ checkoutAndVerify() {
   git checkout $2
 }
 
+wipe() {
+  cd $1
+  rm -rf node_modules
+  git clean -xfd
+  npm i
+}
+
+clear_cache() {
+  rm -rf $APPDATA/Openfin
+  rm -rf $APPDATA/e2o
+  rm -rf $LOACALAPPDATA/Openfin
+}
+
 fsbl() {
   case $1 in
      "sha")
@@ -83,6 +96,12 @@ fsbl() {
         for x in "${all[@]}"
         do
           checkoutAndVerify $x $2 &
+        done
+        ;;
+      "wipe")
+        for x in "${all[@]}"
+        do
+          wipe $x &
         done
         ;;
      *)
