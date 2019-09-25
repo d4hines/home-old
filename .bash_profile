@@ -14,8 +14,16 @@ alias msbuild="/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2019/Communi
 alias core='cd $CORE && npm run build'
 alias seed='cd $SEED && npm run dev'
 alias fea='cd $FEA && npm run dev'
-alias dll='msbuild $DLL'
 alias load_profile='source ~/.bash_profile'
+
+dll() {
+  if [ "$1" == "r" ]
+  then
+    msbuild $DLL //p:Configuration=Release
+  else
+    msbuild $DLL //p:Configuration=Debug
+  fi
+}
 
 up() {
   rm -f "$CORE/dist/index.js"
@@ -30,7 +38,7 @@ up() {
   seed
 }
 
-project_sha() {
+_project_sha() {
   cd $CORE
   local core_sha=$(git rev-parse HEAD)
   cd $SEED
@@ -45,7 +53,7 @@ project_sha() {
 
 all=($SEED $CORE $FEA)
 
-add() {
+_add() {
   case $1 in
     "wpf")
       cd "$SEED"
@@ -66,43 +74,50 @@ add() {
   esac
 }
 
-checkoutAndVerify() {
+_checkoutAndVerify() {
   cd $1
   git checkout $2
 }
 
-wipe() {
+_wipe() {
   cd $1
   rm -rf node_modules
+  set GIT_ASK_YESNO=false
   git clean -xfd
   npm i
+  npm link
 }
 
-clear_cache() {
+_clear_cache() {
   rm -rf $APPDATA/Openfin
   rm -rf $APPDATA/e2o
-  rm -rf $LOACALAPPDATA/Openfin
+  rm -rf $APPDATA/finsemble-electron-adapter
+  rm -rf $LOCALAPPDATA/Openfin
 }
 
 fsbl() {
   case $1 in
      "sha")
-        project_sha
+        _project_sha
         ;;
       "add")
-        add $2
+        _add $2
         ;;
       "co")
         for x in "${all[@]}"
         do
-          checkoutAndVerify $x $2 &
+          _checkoutAndVerify $x $2 &
         done
+        wait
         ;;
       "wipe")
         for x in "${all[@]}"
         do
-          wipe $x &
+          _wipe $x &
         done
+        wait
+        cd $SEED
+        npm link @chartiq/finsemble @chartiq/finsemble-electron-adapter
         ;;
      *)
         echo "Usage: $0 {sha|co}"
