@@ -76,6 +76,7 @@ _add() {
 
 _checkoutAndVerify() {
   cd $1
+  git checkout package.json
   git checkout $2
 }
 
@@ -89,14 +90,18 @@ _wipe() {
 }
 
 _clear_cache() {
-  rm -rf $APPDATA/Openfin
   rm -rf $APPDATA/e2o
   rm -rf $APPDATA/finsemble-electron-adapter
+  rm -rf $APPDATA/Electron
+  rm -rf $APPDATA/Openfin
   rm -rf $LOCALAPPDATA/Openfin
 }
 
 fsbl() {
   case $1 in
+     "clear")
+        _clear_cache
+        ;;
      "sha")
         _project_sha
         ;;
@@ -117,6 +122,14 @@ fsbl() {
         done
         wait
         cd $SEED
+        npm link @chartiq/finsemble @chartiq/finsemble-electron-adapter
+        ;;
+      "install")
+        for x in "${all[@]}"
+        do
+          npm i && npm link &
+        done
+        wait
         npm link @chartiq/finsemble @chartiq/finsemble-electron-adapter
         ;;
      *)
