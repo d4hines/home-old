@@ -63,6 +63,11 @@ _add() {
       cd "$CORE"
       git apply "$PATCHES"/show-console.diff
       ;;
+    "tab33")
+      cd "$SEED"
+      rm -rf ./src/components/groupUpdateTest
+      git apply "$PATCHES"/tab33.diff
+    ;;
     "of")
       cd "$SEED"
       git apply "$PATCHES"/openfin.diff
