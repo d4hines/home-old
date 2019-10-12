@@ -1,0 +1,626 @@
+diff --git a/build/webpack/webpack.components.entries.json b/build/webpack/webpack.components.entries.json
+index 9e26dfee..9280b0b2 100644
+--- a/build/webpack/webpack.components.entries.json
++++ b/build/webpack/webpack.components.entries.json
+@@ -1 +1,6 @@
+-{}
+\ No newline at end of file
++{
++    "groupUpdateTest": {
++        "output": "components/groupUpdateTest/groupUpdateTest",
++        "entry": "./src/components/groupUpdateTest/groupUpdateTest.js"
++    }
++}
+diff --git a/configs/application/components.json b/configs/application/components.json
+index 609d2c37..cb539b48 100644
+--- a/configs/application/components.json
++++ b/configs/application/components.json
+@@ -1,192 +1,228 @@
+ {
+-	"comment": "Sample component configuration",
+-	"components": {
+-		"Welcome Component": {
+-			"window": {
+-				"url": "$applicationRoot/components/welcome/welcome.html",
+-				"affinity": "workspaceComponents",
+-				"frame": false,
+-				"resizable": true,
+-				"autoShow": true,
+-				"top": "center",
+-				"left": "center",
+-				"width": 400,
+-				"height": 432
+-			},
+-			"component": {
+-				"inject": false,
+-				"spawnOnStartup": false,
+-				"preload": "$applicationRoot/preloads/zoom.js"
+-			},
+-			"foreign": {
+-				"services": {
+-					"dockingService": {
+-						"canGroup": true,
+-						"isArrangable": true
+-					}
+-				},
+-				"components": {
+-					"App Launcher": {
+-						"launchableByUser": true
+-					},
+-					"Window Manager": {
+-						"showLinker": true,
+-						"FSBLHeader": true,
+-						"persistWindowState": true,
+-						"title": "Welcome"
+-					},
+-					"Toolbar": {
+-						"iconClass": "ff-component"
+-					}
+-				}
+-			}
+-		},
+-		"nonConfiguredComponent": {
+-			"window": {
+-				"url": "$applicationRoot/components/nonConfiguredComponent/nonConfiguredComponent.html",
+-				"affinity": "systemComponents",
+-				"frame": false,
+-				"resizable": true,
+-				"autoShow": true,
+-				"top": "center",
+-				"left": "center",
+-				"width": 400,
+-				"height": 432
+-			}
+-		},
+-		"Notepad": {
+-			"window": {
+-				"id": "Notepad",
+-				"native": true,
+-				"path": "notepad.exe",
+-				"url": "",
+-				"defaultHeight": 600,
+-				"autoShow": true,
+-				"resizable": true,
+-				"showTaskbarIcon": false,
+-				"contextMenu": true,
+-				"addToWorkspace": true,
+-				"options": {
+-					"alwaysOnTop": false
+-				}
+-			},
+-			"component": {
+-				"spawnOnHotkey": [
+-					"ctrl",
+-					"alt",
+-					"n"
+-				]
+-			},
+-			"foreign": {
+-				"services": {
+-					"workspaceService": {
+-						"isArrangable": true
+-					}
+-				},
+-				"components": {
+-					"App Launcher": {
+-						"launchableByUser": true
+-					},
+-					"Window Manager": {
+-						"persistWindowState": false,
+-						"FSBLHeader": true
+-					},
+-					"Toolbar": {
+-						"iconURL": "$applicationRoot/assets/img/notepad.png"
+-					}
+-				}
+-			}
+-		},
+-		"Getting Started Tutorial": {
+-			"window": {
+-				"url": "https://www.chartiq.com/tutorials/?slug=finsemble-seed-project",
+-				"height": 800,
+-				"width": 1000
+-			},
+-			"component": {
+-				"spawnOnStartup": false
+-			},
+-			"foreign": {
+-				"services": {
+-					"dockingService": {
+-						"isArrangable": true
+-					}
+-				},
+-				"components": {
+-					"App Launcher": {
+-						"launchableByUser": false
+-					},
+-					"Window Manager": {
+-						"persistWindowState": true,
+-						"FSBLHeader": true,
+-						"showLinker": false
+-					}
+-				}
+-			}
+-		},
+-		"Finsemble Documentation": {
+-			"window": {
+-				"url": "http://documentation.chartiq.com/finsemble",
+-				"left": "center",
+-				"top": "center",
+-				"height": 800,
+-				"width": 1000
+-			},
+-			"component": {},
+-			"foreign": {
+-				"services": {
+-					"dockingService": {
+-						"isArrangable": true
+-					}
+-				},
+-				"components": {
+-					"App Launcher": {
+-						"launchableByUser": false
+-					},
+-					"Window Manager": {
+-						"persistWindowState": false,
+-						"FSBLHeader": true,
+-						"showLinker": false
+-					}
+-				}
+-			}
+-		},
+-		"defaultAuthentication": {
+-			"window": {
+-				"url": "$applicationRoot/components/authentication/defaultAuthentication.html",
+-				"top": "center",
+-				"left": "center",
+-				"width": 358,
+-				"height": 658,
+-				"ephemeral": true,
+-				"options": {
+-					"autoShow": false
+-				}
+-			},
+-			"component": {
+-				"neededClients": [
+-					"LauncherClient",
+-					"AuthenticationClient",
+-					"StorageClient"
+-				],
+-				"category": "system"
+-			},
+-			"foreign": {
+-				"services": {
+-					"dockingService": {
+-						"isArrangable": false
+-					}
+-				},
+-				"components": {
+-					"App Launcher": {
+-						"launchableByUser": false
+-					},
+-					"Window Manager": {
+-						"FSBLHeader": false,
+-						"persistWindowState": false
+-					}
+-				}
+-			}
+-		}
+-	}
++    "comment": "Sample component configuration",
++    "components": {
++        "Welcome Component": {
++            "window": {
++                "url": "$applicationRoot/components/welcome/welcome.html",
++                "affinity": "workspaceComponents",
++                "frame": false,
++                "resizable": true,
++                "autoShow": true,
++                "top": "center",
++                "left": "center",
++                "width": 400,
++                "height": 432
++            },
++            "component": {
++                "inject": false,
++                "spawnOnStartup": false,
++                "preload": "$applicationRoot/preloads/zoom.js"
++            },
++            "foreign": {
++                "services": {
++                    "dockingService": {
++                        "canGroup": true,
++                        "isArrangable": true
++                    }
++                },
++                "components": {
++                    "App Launcher": {
++                        "launchableByUser": true
++                    },
++                    "Window Manager": {
++                        "showLinker": true,
++                        "FSBLHeader": true,
++                        "persistWindowState": true,
++                        "title": "Welcome"
++                    },
++                    "Toolbar": {
++                        "iconClass": "ff-component"
++                    }
++                }
++            }
++        },
++        "nonConfiguredComponent": {
++            "window": {
++                "url": "$applicationRoot/components/nonConfiguredComponent/nonConfiguredComponent.html",
++                "affinity": "systemComponents",
++                "frame": false,
++                "resizable": true,
++                "autoShow": true,
++                "top": "center",
++                "left": "center",
++                "width": 400,
++                "height": 432
++            }
++        },
++        "Notepad": {
++            "window": {
++                "id": "Notepad",
++                "native": true,
++                "path": "notepad.exe",
++                "url": "",
++                "defaultHeight": 600,
++                "autoShow": true,
++                "resizable": true,
++                "showTaskbarIcon": false,
++                "contextMenu": true,
++                "addToWorkspace": true,
++                "options": {
++                    "alwaysOnTop": false
++                }
++            },
++            "component": {
++                "spawnOnHotkey": [
++                    "ctrl",
++                    "alt",
++                    "n"
++                ]
++            },
++            "foreign": {
++                "services": {
++                    "workspaceService": {
++                        "isArrangable": true
++                    }
++                },
++                "components": {
++                    "App Launcher": {
++                        "launchableByUser": true
++                    },
++                    "Window Manager": {
++                        "persistWindowState": false,
++                        "FSBLHeader": true
++                    },
++                    "Toolbar": {
++                        "iconURL": "$applicationRoot/assets/img/notepad.png"
++                    }
++                }
++            }
++        },
++        "Getting Started Tutorial": {
++            "window": {
++                "url": "https://www.chartiq.com/tutorials/?slug=finsemble-seed-project",
++                "height": 800,
++                "width": 1000
++            },
++            "component": {
++                "spawnOnStartup": false
++            },
++            "foreign": {
++                "services": {
++                    "dockingService": {
++                        "isArrangable": true
++                    }
++                },
++                "components": {
++                    "App Launcher": {
++                        "launchableByUser": false
++                    },
++                    "Window Manager": {
++                        "persistWindowState": true,
++                        "FSBLHeader": true,
++                        "showLinker": false
++                    }
++                }
++            }
++        },
++        "Finsemble Documentation": {
++            "window": {
++                "url": "http://documentation.chartiq.com/finsemble",
++                "left": "center",
++                "top": "center",
++                "height": 800,
++                "width": 1000
++            },
++            "component": {},
++            "foreign": {
++                "services": {
++                    "dockingService": {
++                        "isArrangable": true
++                    }
++                },
++                "components": {
++                    "App Launcher": {
++                        "launchableByUser": false
++                    },
++                    "Window Manager": {
++                        "persistWindowState": false,
++                        "FSBLHeader": true,
++                        "showLinker": false
++                    }
++                }
++            }
++        },
++        "defaultAuthentication": {
++            "window": {
++                "url": "$applicationRoot/components/authentication/defaultAuthentication.html",
++                "top": "center",
++                "left": "center",
++                "width": 358,
++                "height": 658,
++                "ephemeral": true,
++                "options": {
++                    "autoShow": false
++                }
++            },
++            "component": {
++                "neededClients": [
++                    "LauncherClient",
++                    "AuthenticationClient",
++                    "StorageClient"
++                ],
++                "category": "system"
++            },
++            "foreign": {
++                "services": {
++                    "dockingService": {
++                        "isArrangable": false
++                    }
++                },
++                "components": {
++                    "App Launcher": {
++                        "launchableByUser": false
++                    },
++                    "Window Manager": {
++                        "FSBLHeader": false,
++                        "persistWindowState": false
++                    }
++                }
++            }
++        },
++        "groupUpdateTest": {
++            "window": {
++                "url": "$applicationRoot/components/groupUpdateTest/groupUpdateTest.html",
++                "frame": false,
++                "resizable": true,
++                "autoShow": true,
++                "top": "center",
++                "left": "center",
++                "width": 800,
++                "height": 600
++            },
++            "component": {
++                "preload": false
++            },
++            "foreign": {
++                "services": {
++                    "dockingService": {
++                        "canGroup": true,
++                        "isArrangable": true
++                    }
++                },
++                "components": {
++                    "App Launcher": {
++                        "launchableByUser": true
++                    },
++                    "Window Manager": {
++                        "title": "groupUpdateTest",
++                        "FSBLHeader": true,
++                        "persistWindowState": true
++                    },
++                    "Toolbar": {
++                        "iconClass": "groupUpdateTest"
++                    }
++                }
++            }
++        }
++    }
+ }
+diff --git a/src/components/groupUpdateTest/config.json b/src/components/groupUpdateTest/config.json
+new file mode 100644
+index 00000000..5e47f422
+--- /dev/null
++++ b/src/components/groupUpdateTest/config.json
+@@ -0,0 +1,47 @@
++{
++    "components": {
++        "groupUpdate Test": {
++            "window": {
++                "url": "$applicationRoot/components/welcome/welcome.html",
++                "affinity": "workspaceComponents",
++                "frame": false,
++                "resizable": true,
++                "autoShow": true,
++                "top": "center",
++                "left": "center",
++                "width": 400,
++                "height": 432
++            },
++            "component": {
++                "inject": false,
++                "spawnOnStartup": false,
++                "preload": [
++                    "$applicationRoot/preloads/zoom.js",
++                    "$applicationRoot/components/groupUpdateTest/groupUpdateTest.js"
++                ]
++            },
++            "foreign": {
++                "services": {
++                    "dockingService": {
++                        "canGroup": true,
++                        "isArrangable": true
++                    }
++                },
++                "components": {
++                    "App Launcher": {
++                        "launchableByUser": true
++                    },
++                    "Window Manager": {
++                        "showLinker": true,
++                        "FSBLHeader": true,
++                        "persistWindowState": true,
++                        "title": "Welcome"
++                    },
++                    "Toolbar": {
++                        "iconClass": "ff-component"
++                    }
++                }
++            }
++        }
++    }
++}
+\ No newline at end of file
+diff --git a/src/components/groupUpdateTest/finsemble.webpack.json b/src/components/groupUpdateTest/finsemble.webpack.json
+new file mode 100644
+index 00000000..3ee93c65
+--- /dev/null
++++ b/src/components/groupUpdateTest/finsemble.webpack.json
+@@ -0,0 +1,6 @@
++{
++    "groupUpdateTest": {
++        "output": "components/groupUpdateTest/groupUpdateTest",
++        "entry": "./src/components/groupUpdateTest/groupUpdateTest.js"
++    }
++}
+\ No newline at end of file
+diff --git a/src/components/groupUpdateTest/groupUpdateTest.css b/src/components/groupUpdateTest/groupUpdateTest.css
+new file mode 100644
+index 00000000..355a39b5
+--- /dev/null
++++ b/src/components/groupUpdateTest/groupUpdateTest.css
+@@ -0,0 +1,3 @@
++body {
++	margin:0px;
++}
+\ No newline at end of file
+diff --git a/src/components/groupUpdateTest/groupUpdateTest.html b/src/components/groupUpdateTest/groupUpdateTest.html
+new file mode 100644
+index 00000000..8434b878
+--- /dev/null
++++ b/src/components/groupUpdateTest/groupUpdateTest.html
+@@ -0,0 +1,17 @@
++<!DOCTYPE html>
++<html>
++<head>
++  <meta charset="utf-8">
++  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
++  <title>groupUpdateTest</title>
++  <meta name="description" content="">
++  <meta name="viewport" content="width=device-width, initial-scale=1">
++   <link rel="stylesheet" type="text/css" href="groupUpdateTest.css">
++   <script src="../../vendor.bundle.js"></script>
++   <script src="groupUpdateTest.js"></script>
++</head>
++<body>
++<h1>groupUpdateTest</h1>
++</body>
++</html>
++
+diff --git a/src/components/groupUpdateTest/groupUpdateTest.js b/src/components/groupUpdateTest/groupUpdateTest.js
+new file mode 100644
+index 00000000..d50efcba
+--- /dev/null
++++ b/src/components/groupUpdateTest/groupUpdateTest.js
+@@ -0,0 +1,83 @@
++/**
++ * Write message to console and to the component.
++ * 
++ * @param {string} message The message to log.
++ */
++const log = (message) => {
++	console.log(`Group Update Reproducer: ${message}`);
++	if (!document.getElementById("messages")) {
++		// Create messages if it doesn't exist.
++		const messagesDiv = document.createElement("div");
++		messagesDiv.id = "messages";
++		document.body.appendChild(messagesDiv);
++	}
++
++	const messagesDiv = document.getElementById("messages");
++
++	if (!messagesDiv) {
++		// No message DIV. Cannot log to HTML.
++		return;
++	}
++	
++	const messageEl = document.createElement("div");
++	const messageText = document.createTextNode(`${message}\n`);
++	messageEl.appendChild(messageText);
++	messagesDiv.appendChild(messageEl);
++	messagesDiv.appendChild(document.createElement("br"));
++}
++
++/**
++ * Handles the group update event.
++ * 
++ * @param {*} err The error object. Null if there is no error
++ * @param {*} res The response from group update
++ */
++const groupUpdateHandler = (err, res) => {
++	if (err) {
++		log(`ERROR - Group update: ${err}`);
++		FSBL.Clients.Logger.error(err);
++		return;
++	}
++
++	const windowNameForDocking = FSBL.Clients.WindowClient.getWindowNameForDocking();
++	log(`Getting docking state for "${windowNameForDocking}"`);
++	const dockingState = determineDockingState(res.data.groupData, windowNameForDocking);
++	log(`Docking state: ${dockingState}`);
++};
++
++/**
++ * Determines whether the window is separate, adjacent or connected to another window for grouping.
++ * @param {string[]} groups Array of current groups 
++ * @param {string} windowName The name of the window to check
++ * @returns The docking state
++ */
++const determineDockingState = (groups, windowName) => {
++	// Get groups that include the window name passed in
++	const windowGroups = Object.values(groups).filter(group => group.windowNames.includes(windowName));
++
++	// Default docking state is separate
++	let dockingState = "DockingState.Separate";
++
++	// If the window name is in a group, the state isn't the default.
++	if (windowGroups.length > 0) {
++		// If one of the groups the window is in is moveable, the window is connected, otherwise it is adjacent.
++		dockingState = windowGroups.some(group => group.isMovable) ? "DockingState.Connected" : "DockingState.Adjacent";
++	}
++
++	return dockingState;
++}
++
++const FSBLReady = async () => {
++	try {
++		log(`Window name for docking: ${FSBL.Clients.WindowClient.getWindowNameForDocking()}`);
++		FSBL.Clients.RouterClient.subscribe("Finsemble.WorkspaceService.groupUpdate", groupUpdateHandler);
++	} catch (e) {
++		FSBL.Clients.Logger.error(e);
++	}
++}
++
++if (window.FSBL && FSBL.addEventListener) {
++	FSBL.addEventListener("onReady", FSBLReady)
++} else {
++	window.addEventListener("FSBLReady", FSBLReady)
++}
+\ No newline at end of file
