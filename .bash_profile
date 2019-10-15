@@ -1,5 +1,7 @@
 #!bin/bash
 
+export PATH=$PATH:"~/bin"
+
 complainEmpty() {
   echo "No value detected for variable $1. Please set and restart the shell before continuing."
 }
