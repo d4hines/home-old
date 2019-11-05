@@ -14,7 +14,7 @@ complainEmpty() {
 
 alias msbuild="/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2019/Community/MSBuild/Current/Bin/amd64/MSBuild.exe"
 alias core='cd $CORE && npm run build'
-alias seed='cd $SEED && npm run dev'
+alias seed='cd $SEED && npm run dev:fresh'
 alias fea='cd $FEA && npm run dev'
 alias load_profile='source ~/.bash_profile'
 
@@ -59,7 +59,7 @@ _add() {
   case $1 in
     "wpf")
       cd "$SEED"
-      git apply "$PATCHES"/WPFExample.diff
+      git apply --ignore-space-change --ignore-whitespace --3way "$PATCHES"/WPFExample.diff
       ;;
     "console")
       cd "$CORE"
