@@ -19,11 +19,14 @@ alias fea='cd $FEA && npm run dev'
 alias load_profile='source ~/.bash_profile'
 
 dll() {
+  
   if [ "$1" == "r" ]
   then
     msbuild $DLL //p:Configuration=Release
+    echo "Finsemble-DLL built in release mode!"
   else
     msbuild $DLL //p:Configuration=Debug
+    echo "Finsemble-DLL built in debug mode!"
   fi
 }
 
@@ -134,6 +137,9 @@ fsbl() {
         wait
         cd $SEED
         npm link @chartiq/finsemble @chartiq/finsemble-electron-adapter
+        ;;
+      "kill")
+        finsemble-cli kill
         ;;
       "install")
         for x in "${all[@]}"
