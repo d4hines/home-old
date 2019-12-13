@@ -19,11 +19,13 @@ alias fea='cd $FEA && npm run dev'
 alias load_profile='source ~/.bash_profile'
 
 dll() {
-  
-  if [ "$1" == "r" ]
+  if grep -Pq '(Release.*Debug)|(Debug.*Release)' "$DLL/FinsembleDotNet.sln"
   then
-    msbuild $DLL //p:Configuration=Release
-    echo "Finsemble-DLL built in release mode!"
+    echo "Someone screwed up the build configuration! There are either Release builds in the Debug mode or Debug builds in the Release mode."
+  elif [ "$1" == "r" ]
+    then
+      msbuild $DLL //p:Configuration=Release
+      echo "Finsemble-DLL built in release mode!"
   else
     msbuild $DLL //p:Configuration=Debug
     echo "Finsemble-DLL built in debug mode!"
@@ -84,6 +86,7 @@ _add() {
     "java")
       cd "$SEED"
       git apply "$PATCHES"/java.diff
+      ;;
     *)
       echo "Usage: $0 {wpf}"
       echo "Applies various patches to finsemble"
