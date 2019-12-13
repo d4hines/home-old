@@ -1,0 +1,18 @@
+diff --git a/configs/openfin/manifest-local.json b/configs/openfin/manifest-local.json
+index 38c7c85d..e0a6bfca 100644
+--- a/configs/openfin/manifest-local.json
++++ b/configs/openfin/manifest-local.json
+@@ -68,10 +68,12 @@
+     "finsemble": {
+         "applicationRoot": "http://localhost:3375",
+         "moduleRoot": "$applicationRoot/finsemble",
++        "javaExampleJarRoot": "C:/Users/d4hin/repos/finsemble-java-example/target",
+         "servicesRoot": "$applicationRoot/finsemble/services",
+         "notificationURL": "$applicationRoot/components/notification/notification.html",
+         "importConfig": [
+-            "$applicationRoot/configs/application/config.json"
++            "$applicationRoot/configs/application/config.json",
++            "$applicationRoot/configs/java-example.json"
+         ],
+         "IAC": {
+             "serverAddress": "ws://127.0.0.1:3376"

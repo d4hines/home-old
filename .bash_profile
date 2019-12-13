@@ -81,6 +81,9 @@ _add() {
       cd "$SEED"
       git apply "$PATCHES"/openfin.diff
       ;;
+    "java")
+      cd "$SEED"
+      git apply "$PATCHES"/java.diff
     *)
       echo "Usage: $0 {wpf}"
       echo "Applies various patches to finsemble"
