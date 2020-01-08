@@ -86,6 +86,7 @@ _add() {
     "java")
       cd "$SEED"
       git apply "$PATCHES"/java.diff
+      cp "$REPOS"/finsemble-java-example/java-example.json "$SEED"/configs
       ;;
     *)
       echo "Usage: $0 {wpf}"
@@ -98,6 +99,8 @@ _checkoutAndVerify() {
   cd $1
   git checkout package.json
   git checkout $2
+  git fetch
+  git pull
 }
 
 _wipe() {
