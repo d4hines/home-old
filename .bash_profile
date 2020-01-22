@@ -74,11 +74,11 @@ _add() {
       cd "$SEED"
       rm -rf ./src/components/groupUpdateTest
       git apply "$PATCHES"/tab33.diff
-    ;;
+      ;;
     "tab34")
       cd "$SEED"
       git apply "$PATCHES"/tab33.diff
-    ;;
+      ;;
     "of")
       cd "$SEED"
       git apply "$PATCHES"/openfin.diff
@@ -87,6 +87,10 @@ _add() {
       cd "$SEED"
       git apply "$PATCHES"/java.diff
       cp "$REPOS"/finsemble-java-example/java-example.json "$SEED"/configs
+      ;;
+    "appd")
+      cd "$SEED"
+      git apply "$PATCHES"/appd-server.diff
       ;;
     *)
       echo "Usage: $0 {wpf}"
