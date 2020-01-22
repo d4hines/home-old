@@ -163,8 +163,14 @@ fsbl() {
         npm link @chartiq/finsemble @chartiq/finsemble-electron-adapter
         ;;
      *)
-        echo "Usage: $0 {sha|co}"
+        echo "Usage: $0 {sha|co|clear|add|wipe|kill|install}"
         echo "sha: Prints the git SHA's of Core, Seed, and FEA"
+        echo "co {git branch}: Checks out the branch on Core, Seed, and FEA"
+        echo "clear: Clears the cache (in APPDATA and LOCALAPPDATA)"
+        echo "add {wpf|console|tab33|tab34|of|java|appd}: Applies a git patch to add the specified setup"
+        echo "wipe: Reverts Core, Seed, and FEA repositories to their clean state, then installs there dependencies and links them."
+        echo "kill: Alias for finemble-cli kill"
+        echo "install: Installs dependencies and links for Core, Seed, and FEA"
         ;;
   esac
 }
