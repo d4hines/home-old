@@ -7,19 +7,18 @@ SetTitleMatchMode RegEx
 CoordMode, Mouse, Screen
 
 ^+k::run "https://chartiq.kanbanize.com/ctrl_board/18"
-^!r::run "http://roamresearch.com/#/v10/d4hines"
+^!r::OpenRoam()
 ;; Activate Slack
 ^!s::Click, 2358, 1426
 
-; ^f::OpenTheThing()
-; 
-; OpenTheThing() {
-;   IfWinExist, MINGW64`:/c/Users/d4hin/my_special_folder
-;   {
-;     WinActivate  ; Automatically uses the window found above.
-;     return
-;   } else {
-;     Run,  C:\Program Files\Git\git-bash.exe, C:/Users/d4hin/my_special_folder
-;   }
-; }
+OpenRoam() {
+  IfWinExist, Chrome
+  {
+    WinActivate ; Automatically uses the window found above.
+    return
+  } else {
+    Run, C:\Program Files (x86)\Google\Chrome\Application\Chrome.exe https://roamresearch.com/#/app/d4hines
+  }
+}
+
 
