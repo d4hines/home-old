@@ -9,7 +9,14 @@ CoordMode, Mouse, Screen
 ^+k::run "https://chartiq.kanbanize.com/ctrl_board/18"
 ^!r::OpenRoam()
 ;; Activate Slack
-^!s::Click, 2358, 1426
+^!s::OpenSlack()
+OpenSlack() {
+  send, ^{Esc}
+  sleep, 200
+  send, slack
+  sleep, 100
+  send, {Enter}
+}
 
 OpenRoam() {
   IfWinExist, Chrome
