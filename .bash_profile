@@ -150,6 +150,7 @@ fsbl() {
         wait
         cd $SEED
         npm link @chartiq/finsemble @chartiq/finsemble-electron-adapter
+        _clear_cache
         ;;
       "kill")
         finsemble-cli kill
