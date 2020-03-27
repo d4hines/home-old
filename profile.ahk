@@ -29,3 +29,15 @@ OpenRoam() {
 }
 
 
+; Open a new Notepad++ document
+; In the menu bar, click on Encoding > Encode in UTF-8 BOM
+; Paste this into Notepad++
+; Save as emoji_expansion.ahk
+; run
+; type "!shrug" (without quotes) to get ¯\_(ツ)_/¯
+
+::!shrug::¯\_(ツ)_/¯
+::!whatever::◔_◔
+::!why::щ(ºДºщ)
+::!happy::(ﾟヮﾟ)
+::!flip::(╯°□°）╯︵ ┻━┻
