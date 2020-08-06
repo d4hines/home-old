@@ -42,3 +42,6 @@ OpenRoam() {
 ::!happy::(ﾟヮﾟ)
 ::!flip::(╯°□°）╯︵ ┻━┻
 ::!\lambda::λ
+::!\waw::ϝ
+::!\Gamma::Γ
+::!\Pi::Π
