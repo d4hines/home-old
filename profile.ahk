@@ -28,7 +28,6 @@ OpenRoam() {
   }
 }
 
-
 ; Open a new Notepad++ document
 ; In the menu bar, click on Encoding > Encode in UTF-8 BOM
 ; Paste this into Notepad++
@@ -45,3 +44,5 @@ OpenRoam() {
 ::!\waw::ϝ
 ::!\Gamma::Γ
 ::!\Pi::Π
+
+::SmD::SmartDesktop
