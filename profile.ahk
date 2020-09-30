@@ -7,6 +7,8 @@ SetTitleMatchMode RegEx
 CoordMode, Mouse, Screen
 
 ^+k::run "https://chartiq.kanbanize.com/ctrl_board/18"
+^!d::run "https://bit.ly/3k9OyQ3"
+^!b::run "https://bit.ly/3kOkjyr"
 ^!r::OpenRoam()
 ;; Activate Slack
 ^!s::OpenSlack()
@@ -44,5 +46,6 @@ OpenRoam() {
 ::!\waw::ϝ
 ::!\Gamma::Γ
 ::!\Pi::Π
+::!\forall::∀
 
-::SmD::SmartDesktop
+::smd::SmartDesktop
