@@ -1,5 +1,7 @@
 ﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
+
+#Include %A_ScriptDir%\web_catalog.ahk
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
@@ -9,14 +11,7 @@ CoordMode, Mouse, Screen
 Esc::CapsLock
 Capslock::Esc
 
-^!r::OpenRoam()
-OpenRoam() {
-  send, ^{Esc}
-  sleep 100
-  send, roam
-  sleep 100
-  send, {Enter}
-}
+^!r::WinActivate, ahk_exe Roam Research.exe
 
 ;; Activate Slack
 ^!f::OpenFerdi()
@@ -27,6 +22,13 @@ OpenFerdi() {
   sleep 100
   send, {Enter}
 }
+
+#IfWinNotActive ahk_exe brave.exe
+XButton2::^]
+
+#IfWinNotActive ahk_exe brave.exe
+XButton1::^[
+
 
 ; Open a new Notepad++ document
 ; In the menu bar, click on Encoding > Encode in UTF-8 BOM
