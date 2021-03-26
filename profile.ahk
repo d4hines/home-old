@@ -29,6 +29,15 @@ XButton2::^]
 #IfWinNotActive ahk_exe brave.exe
 XButton1::^[
 
+; #IfWinActive ahk_exe Code.exe
+; +Enter::Repl()
+; Repl() {
+; 	send, ^{e}
+; 	sleep 1000
+; 	send, ^`
+; }
+
+
 
 ; Open a new Notepad++ document
 ; In the menu bar, click on Encoding > Encode in UTF-8 BOM
@@ -47,6 +56,7 @@ XButton1::^[
 ::!\Gamma::Γ
 ::!\Pi::Π
 ::!\forall::∀
+::!tz::ꜩ
 
 ; ----------------------------------------------------------------------------------------------------------------------
 ; Name ..........: TrayIcon library
