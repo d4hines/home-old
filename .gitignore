@@ -1,4 +1,6 @@
 *
 !.gitignore
 !.bash_profile
-
+!.git_config
+!profile.ahk
+!web_catalog.ahk

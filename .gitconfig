@@ -1,0 +1,13 @@
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[user]
+	email = daniel@goldencube.info
+	name = Daniel Hines
+[core]
+	editor = vim
+[alias]
+	co = checkout
+	br = branch
