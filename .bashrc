@@ -1,5 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
+############ Swap keys regardless of anything else #########
+setxkbmap -option caps:swapescape
 ############ Useful defaults inherited from Ubuntu #########
 
 # If not running interactively, don't do anything
@@ -63,7 +65,6 @@ fi
 ##############################################################
 
 ############## My Customizations ############################
-setxkbmap -option caps:swapescape
 
 # Source Rust stuff
 . "$HOME/.cargo/env"
@@ -76,3 +77,13 @@ test -r /home/d4hines/.opam/opam-init/init.sh && . /home/d4hines/.opam/opam-init
 
 alias homegit='GIT_DIR=.homegit git'
 alias reload='source $HOME/.bashrc'
+alias vimprofile='vim ~/.bashrc'
+
+eval "$(starship init bash)"
+eval "$(direnv hook bash)"
+
+## Tezos stuff
+alias cdp='cd $TEZOS_DIR/src/proto_alpha/lib_protocol'
+alias cdt='cd $TEZOS_DIR'
+alias runtest='watchexec'
+alias turn_off_warning='export OCAMLPARAM="_,w=-27-26"'
