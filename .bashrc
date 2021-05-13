@@ -70,7 +70,7 @@ fi
 . "$HOME/.cargo/env"
 
 # Uuse patdiff instead of default Git diffing algorithm
-export GIT_EXTERNAL_DIFF="opam exec patdiff-git-wrapper"
+# export GIT_EXTERNAL_DIFF="opam exec patdiff-git-wrapper"
 
 # opam configuration
 test -r /home/d4hines/.opam/opam-init/init.sh && . /home/d4hines/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
@@ -85,5 +85,6 @@ eval "$(direnv hook bash)"
 ## Tezos stuff
 alias cdp='cd $TEZOS_DIR/src/proto_alpha/lib_protocol'
 alias cdt='cd $TEZOS_DIR'
-alias runtest='watchexec'
 alias turn_off_warning='export OCAMLPARAM="_,w=-27-26"'
+alias runtest='dune build --terminal-persistence=clear-on-rebuild  @runtest_proto_alpha_global --watch'
+
