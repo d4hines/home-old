@@ -1,0 +1,54 @@
+{
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    // the code spellcheck extension is a must have: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+    "cSpell.userWords": [
+        "tezos"
+    ],
+    "files.autoSave": "afterDelay",
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "editor.renderWhitespace": "all",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "editor.minimap.enabled": false,
+    "workbench.startupEditor": "welcomePage",
+    "editor.formatOnSave": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "diffEditor.wordWrap": "off",
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "remote.SSH.remotePlatform": {
+        "ec2": "linux",
+        "rpi": "linux",
+        "m1": "macOS"
+    },
+    "prettier.proseWrap": "always",
+    "[ocaml]": {
+        "editor.defaultFormatter": "ocamllabs.ocaml-platform"
+    },
+    "ocaml.trace.server": "verbose",
+    "ocaml.useOcamlEnv": false,
+    "window.zoomLevel": 1,
+    "gitlens.blame.ignoreWhitespace": true,
+}

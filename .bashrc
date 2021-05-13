@@ -85,6 +85,5 @@ eval "$(direnv hook bash)"
 ## Tezos stuff
 alias cdp='cd $TEZOS_DIR/src/proto_alpha/lib_protocol'
 alias cdt='cd $TEZOS_DIR'
-alias turn_off_warning='export OCAMLPARAM="_,w=-27-26"'
+alias turn_off_warnings='export OCAMLPARAM="_,w=-27-26-32-33-20"'
 alias runtest='dune build --terminal-persistence=clear-on-rebuild  @runtest_proto_alpha_global --watch'
-
