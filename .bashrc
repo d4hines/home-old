@@ -65,6 +65,7 @@ fi
 ##############################################################
 
 ############## My Customizations ############################
+shopt -s dotglob
 
 # Source Rust stuff
 . "$HOME/.cargo/env"
