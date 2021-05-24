@@ -4,8 +4,8 @@
 	required = true
 	clean = git-lfs clean -- %f
 [user]
-	email = daniel@goldencube.info
-	name = Daniel Hines
+	email = editme@marigold.dev
+	name = Edit Me
 [core]
 	editor = vim
 [alias]

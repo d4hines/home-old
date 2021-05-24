@@ -1,7 +1,8 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
-############ Swap keys regardless of anything else #########
-setxkbmap -option caps:swapescape
+# This file is symlinked to .bash_profile and .profile for
+# consistency.
+
 ############ Useful defaults inherited from Ubuntu #########
 
 # If not running interactively, don't do anything
@@ -84,7 +85,24 @@ eval "$(starship init bash)"
 eval "$(direnv hook bash)"
 
 ## Tezos stuff
+# I define $TEZOS_DIR in a .envrc and load it automatically with direnv
+# That's set up in https://github.com/d4hines/dev-tezos
 alias cdp='cd $TEZOS_DIR/src/proto_alpha/lib_protocol'
 alias cdt='cd $TEZOS_DIR'
 alias turn_off_warnings='export OCAMLPARAM="_,w=-27-26-32-33-20"'
-alias runtest='dune build --terminal-persistence=clear-on-rebuild  @runtest_proto_alpha_global --watch'
+alias runtest='dune build --terminal-persistence=clear-on-rebuild  @runtest_proto_alpha --watch'
+alias dbw='dune build --terminal-persistence=clear-on-rebuild --watch'
+
+create-mockup () {
+	if [[ ! -d /tmp/mockup ]]; then
+		tezos-client \
+		  --protocol ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK \
+		  --base-dir /tmp/mockup \
+		  --mode mockup \
+		  create mockup
+	fi
+} 
+
+alias mockup-client='create-mockup && tezos-client --mode mockup --base-dir /tmp/mockup'
+
+if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
