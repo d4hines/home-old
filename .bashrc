@@ -87,7 +87,7 @@ eval "$(direnv hook bash)"
 
 alias cdp='cd $TEZOS_DIR/src/proto_alpha/lib_protocol'
 alias cdt='cd $TEZOS_DIR'
-alias turn_off_warnings='export OCAMLPARAM="_,w=-27-26-32-33-20"'
+alias turn_off_warnings='export OCAMLPARAM="_,w=-27-26-32-33-20-21"'
 alias runtest='dune build --terminal-persistence=clear-on-rebuild  @runtest_proto_alpha --watch'
 alias dbw='dune build --terminal-persistence=clear-on-rebuild --watch'
 
@@ -102,5 +102,9 @@ create-mockup () {
 } 
 
 alias mockup-client='create-mockup && tezos-client --mode mockup --base-dir /tmp/mockup'
+
+alias client='mockup-client'
+
+alias w='watchexec --restart --shell=bash -c -e ml,mli -w src'
 
 if [ -e /home/d4hines/.nix-profile/etc/profile.d/nix.sh ]; then . /home/d4hines/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
