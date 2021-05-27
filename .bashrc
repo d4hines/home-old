@@ -1,9 +1,13 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-
 # This file is symlinked to .bash_profile and .profile for
 # consistency.
 
 ############ Useful defaults inherited from Ubuntu #########
+#setxkbmap -option caps:escape
+
+export NO_AT_BRIDGE=1
+
+[[ $(echo "$SSH_CLIENT" | grep "10.0.2.2") ]] && export DISPLAY="localhost:10.0"
 
 # If not running interactively, don't do anything
 case $- in
@@ -81,9 +85,10 @@ alias homegit='GIT_DIR=.homegit git'
 alias reload='source $HOME/.bashrc'
 alias vimprofile='vim ~/.bashrc'
 
+alias x410='export DISPLAY="localhost:10.0"'
+
 eval "$(starship init bash)"
 eval "$(direnv hook bash)"
-
 ## Tezos stuff
 # I define $TEZOS_DIR in a .envrc and load it automatically with direnv
 # That's set up in https://github.com/d4hines/dev-tezos
