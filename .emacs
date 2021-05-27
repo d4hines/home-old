@@ -69,15 +69,28 @@
 ;; OCaml specific things
 (add-hook 'merlin-mode-hook 'origami-mode)
 (add-hook 'merlin-mode-hook 'origami-predef-global-mode)
+
+;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
+(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;; ## end of OPAM user-setup addition for emacs / base ## keep this line
+
+;; No idea what symbol-overlay does yet.
+;; Actually, kind of iffy about everything past this line.
+(require 'symbol-overlay)
+(global-set-key (kbd "M-i") 'symbol-overlay-put)
+(global-set-key (kbd "M-r") 'symbol-overlay-query-replace)
+(global-set-key (kbd "M-n") 'symbol-overlay-switch-forward)
+(global-set-key (kbd "M-p") 'symbol-overlay-switch-backward)
+(global-set-key (kbd "M-t") 'symbol-overlay-toggle-in-scope)
+(global-set-key (kbd "M-c") 'symbol-overlay-remove-all)
+
 (global-set-key (kbd "C-x <up>") 'origami-close-node)
 (global-set-key (kbd "C-x <down>") 'origami-open-node)
 (global-set-key (kbd "C-x C-<up>") 'origami-close-all-nodes)
 (global-set-key (kbd "C-x C-<down>") 'origami-open-node-recursively)
 (global-set-key (kbd "C-x C-/") 'origami-undo)
 (global-set-key (kbd "C-x a f") "(*autofold*)")
-;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
-(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
-;; ## end of OPAM user-setup addition for emacs / base ## keep this line
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
