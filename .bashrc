@@ -89,12 +89,16 @@ alias x410='export DISPLAY="localhost:10.0"'
 
 eval "$(starship init bash)"
 eval "$(direnv hook bash)"
+
+cgrep() {
+	 grep -niP "$1" $(git diff --name-only $(git merge-base HEAD origin/master))
+}
+
 ## Tezos stuff
 # I define $TEZOS_DIR in a .envrc and load it automatically with direnv
 # That's set up in https://github.com/d4hines/dev-tezos
 alias cdp='cd $TEZOS_DIR/src/proto_alpha/lib_protocol'
 alias cdt='cd $TEZOS_DIR'
-alias turn_off_warnings='export OCAMLPARAM="_,w=-27-26-32-33-20"'
 alias runtest='dune build --terminal-persistence=clear-on-rebuild  @runtest_proto_alpha --watch'
 alias dbw='dune build --terminal-persistence=clear-on-rebuild --watch'
 
@@ -108,6 +112,17 @@ create-mockup () {
 	fi
 } 
 
+alias destroy-mockup='rm -rf /tmp/mockup'
+
 alias mockup-client='create-mockup && tezos-client --mode mockup --base-dir /tmp/mockup'
+
+alias dbw='dune build --terminal-persistence=clear-on-rebuild --watch'
+alias wmake='watchexec --restart -c -w ./src "make && echo 🟢🟢🟢🟢🟢"'
+
+i=0
+function register_next() {
+	i=$((i+1))
+	mockup-client register global constant "$i" from bootstrap1 --burn-cap 1
+}
 
 if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
