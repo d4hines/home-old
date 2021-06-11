@@ -91,7 +91,7 @@ alias turn_off_warnings='export OCAMLPARAM="_,w=-27-26-32-33-20-21"'
 alias runtest='dune build --terminal-persistence=clear-on-rebuild  @runtest_proto_alpha --watch'
 alias dbw='dune build --terminal-persistence=clear-on-rebuild --watch'
 
-create-mockup () {
+create_mockup () {
 	if [[ ! -d /tmp/mockup ]]; then
 		tezos-client \
 		  --protocol ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK \
@@ -101,10 +101,14 @@ create-mockup () {
 	fi
 } 
 
-alias mockup-client='create-mockup && tezos-client --mode mockup --base-dir /tmp/mockup'
+alias destroy_mockup='rm -rf /tmp/mockup'
+
+alias mockup_client='create-mockup && tezos-client --mode mockup --base-dir /tmp/mockup'
 
 alias client='mockup-client'
 
 alias w='watchexec --restart --shell=bash -c -e ml,mli -w src'
+
+alias tezt='dune exec tezt/tests/main.exe --'
 
 if [ -e /home/d4hines/.nix-profile/etc/profile.d/nix.sh ]; then . /home/d4hines/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
