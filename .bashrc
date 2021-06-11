@@ -1,7 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
 ############ Swap keys regardless of anything else #########
-setxkbmap -option caps:swapescape
+command -v setxkbmap >/dev/null 2>&1 && setxkbmap -option caps:swapescape
 ############ Useful defaults inherited from Ubuntu #########
 
 # If not running interactively, don't do anything
@@ -65,6 +65,7 @@ fi
 ##############################################################
 
 ############## My Customizations ############################
+shopt -s dotglob
 
 # Source Rust stuff
 . "$HOME/.cargo/env"
@@ -83,7 +84,27 @@ eval "$(starship init bash)"
 eval "$(direnv hook bash)"
 
 ## Tezos stuff
+
 alias cdp='cd $TEZOS_DIR/src/proto_alpha/lib_protocol'
 alias cdt='cd $TEZOS_DIR'
-alias turn_off_warnings='export OCAMLPARAM="_,w=-27-26-32-33-20"'
-alias runtest='dune build --terminal-persistence=clear-on-rebuild  @runtest_proto_alpha_global --watch'
+alias turn_off_warnings='export OCAMLPARAM="_,w=-27-26-32-33-20-21"'
+alias runtest='dune build --terminal-persistence=clear-on-rebuild  @runtest_proto_alpha --watch'
+alias dbw='dune build --terminal-persistence=clear-on-rebuild --watch'
+
+create-mockup () {
+	if [[ ! -d /tmp/mockup ]]; then
+		tezos-client \
+		  --protocol ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK \
+		  --base-dir /tmp/mockup \
+		  --mode mockup \
+		  create mockup
+	fi
+} 
+
+alias mockup-client='create-mockup && tezos-client --mode mockup --base-dir /tmp/mockup'
+
+alias client='mockup-client'
+
+alias w='watchexec --restart --shell=bash -c -e ml,mli -w src'
+
+if [ -e /home/d4hines/.nix-profile/etc/profile.d/nix.sh ]; then . /home/d4hines/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
