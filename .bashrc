@@ -18,7 +18,7 @@ alias watchexec="watchexec --shell='bash --login -O expand_aliases'"
 alias cdp='cd $TEZOS_DIR/src/proto_alpha/lib_protocol'
 alias cdt='cd $TEZOS_DIR'
 alias cdu='cd $TEZOS_DIR/src/proto_alpha/lib_protocol/test/unit'
-alias turn_off_warnings='export OCAMLPARAM="_,w=-27-26-32-33-20-21"'
+alias turn_off_warnings='export OCAMLPARAM="_,w=-27-26-32-33-20-21-37-34"'
 alias runtest='dune build --terminal-persistence=clear-on-rebuild  @runtest_proto_alpha --watch'
 alias test_globals='(cdu && dune build @runtest --force ) && dune exec ./src/proto_alpha/lib_protocol/test/main.exe -- test "global table of constants" -c && tezt global_constant'
 alias dbw='dune build --terminal-persistence=clear-on-rebuild --watch'
@@ -48,6 +48,13 @@ shopt -s dotglob
 
 # Source Rust stuff
 . "$HOME/.cargo/env"
+
+
+# Source pyenv for Tezos
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 
 # Uuse patdiff instead of default Git diffing algorithm
 # export GIT_EXTERNAL_DIFF="opam exec patdiff-git-wrapper"
@@ -119,3 +126,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export PATH="$HOME/.poetry/bin:$PATH"
